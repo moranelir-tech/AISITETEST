@@ -22,12 +22,14 @@
         .border-gold { border-color: #D4AF37; }
         .bg-deep-black { background-color: #1A1A1A; }
         .bg-cream { background-color: #FDFBF7; }
+        /* Styles for Admin Panel */
+        #admin-panel-container { background-color: #FDFBF7; }
     </style>
 </head>
 <body class="bg-white">
 
     <!-- Header -->
-    <header class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
+    <header class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-40">
         <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
             <div class="hidden md:flex items-center space-x-8">
                 <a href="shop.html" class="text-gold transition-colors duration-300">חנות</a>
@@ -55,46 +57,211 @@
     <!-- Footer -->
     <footer class="bg-white text-gray-700 py-12 mt-12">
         <div class="container mx-auto px-6 text-center">
-            <p class="font-sans text-sm">&copy; 2024 OLIVES JEWELRY</p>
+            <p class="font-sans text-sm mb-2">&copy; 2024 OLIVES JEWELRY</p>
+            <a href="#" id="admin-login-link" class="text-xs text-gray-500 hover:text-gold">כניסת מנהל</a>
         </div>
     </footer>
 
+    <!-- Admin Panel (Initially Hidden) -->
+    <div id="admin-section" class="hidden">
+        <div id="auth-overlay" class="fixed inset-0 bg-gray-900/80 flex items-center justify-center z-50">
+            <div class="bg-white p-8 rounded-lg shadow-xl text-center w-full max-w-sm">
+                <h2 class="text-2xl font-serif mb-4">כניסת מנהל מערכת</h2>
+                <input type="password" id="password" placeholder="הזן סיסמה" class="w-full px-4 py-2 border rounded-md mb-4 text-center">
+                <div class="flex justify-center gap-4">
+                    <button id="login-btn" class="bg-deep-black text-white px-8 py-2 rounded-md hover:opacity-90">כניסה</button>
+                    <button id="cancel-login-btn" class="bg-gray-300 text-gray-800 px-8 py-2 rounded-md hover:bg-gray-400">ביטול</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="admin-panel-container" class="hidden fixed inset-0 bg-cream p-8 overflow-y-auto z-40">
+             <main id="admin-panel" class="container mx-auto">
+                <div class="flex justify-between items-center mb-12">
+                    <h1 class="text-4xl font-serif">ניהול מוצרים</h1>
+                    <button id="close-admin-panel-btn" class="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700">סגור פאנל</button>
+                </div>
+
+                <!-- Add Product Form -->
+                <div class="bg-white p-8 rounded-lg shadow-md mb-12">
+                    <h2 class="text-2xl font-serif mb-6">הוספת מוצר חדש</h2>
+                    <form id="addProductForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" id="productName" placeholder="שם המוצר" class="px-4 py-2 border rounded-md" required>
+                        <input type="text" id="productCategory" placeholder="קטגוריה" class="px-4 py-2 border rounded-md" required>
+                        <input type="number" id="productPrice" placeholder="מחיר (בשקלים)" class="px-4 py-2 border rounded-md" required>
+                        <input type="text" id="productImageUrl" placeholder="כתובת URL של תמונה" class="px-4 py-2 border rounded-md" required>
+                        <div class="md:col-span-2 text-left">
+                            <button type="submit" class="bg-deep-black text-white px-8 py-3 rounded-md hover:opacity-90">הוסף מוצר</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Products Table -->
+                <div>
+                    <h2 class="text-2xl font-serif mb-6">רשימת מוצרים</h2>
+                    <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+                        <table class="w-full text-right">
+                            <thead class="border-b-2 border-gray-200">
+                                <tr>
+                                    <th class="p-4">תמונה</th>
+                                    <th class="p-4">שם</th>
+                                    <th class="p-4">קטגוריה</th>
+                                    <th class="p-4">מחיר</th>
+                                    <th class="p-4">פעולות</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Admin products will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
 <script>
+// --- Shop Script --- 
 document.addEventListener('DOMContentLoaded', async () => {
     const productGrid = document.getElementById('product-grid');
 
-    try {
-        const response = await fetch('products.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+    async function fetchAndRenderShopProducts() {
+        try {
+            const response = await fetch('products.json?v=' + Date.now()); // Bust cache
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const products = await response.json();
+            
+            if (productGrid) {
+                productGrid.innerHTML = ''; // Clear existing content
+                products.forEach(product => {
+                    const productCard = `
+                        <div class="group relative text-center">
+                            <a href="product.html?id=${product.id}" class="block">
+                                <div class="overflow-hidden mb-4 bg-white">
+                                    <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105">
+                                </div>
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <span class="text-white border border-white py-2 px-6">צפה במוצר</span>
+                                </div>
+                            </a>
+                            <h3 class="font-serif text-xl">${product.name}</h3>
+                            <p class="text-sm text-gray-500">${product.category}</p>
+                            <p class="font-sans font-semibold mt-2">₪${product.price}</p>
+                        </div>
+                    `;
+                    productGrid.innerHTML += productCard;
+                });
+            }
+        } catch (error) {
+            console.error('Fetch error:', error);
+            if (productGrid) {
+                productGrid.innerHTML = '<p class="text-center col-span-full">שגיאה בטעינת המוצרים. נסה שוב מאוחר יותר.</p>';
+            }
         }
-        const products = await response.json();
-        
-        productGrid.innerHTML = ''; // Clear existing content
-
-        products.forEach(product => {
-            const productCard = `
-                <div class="group relative text-center">
-                    <a href="product.html?id=${product.id}" class="block">
-                        <div class="overflow-hidden mb-4 bg-white">
-                            <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105">
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span class="text-white border border-white py-2 px-6">צפה במוצר</span>
-                        </div>
-                    </a>
-                    <h3 class="font-serif text-xl">${product.name}</h3>
-                    <p class="text-sm text-gray-500">${product.category}</p>
-                    <p class="font-sans font-semibold mt-2">₪${product.price}</p>
-                </div>
-            `;
-            productGrid.innerHTML += productCard;
-        });
-
-    } catch (error) {
-        console.error('Fetch error:', error);
-        productGrid.innerHTML = '<p class="text-center col-span-full">שגיאה בטעינת המוצרים. נסה שוב מאוחר יותר.</p>';
     }
+
+    await fetchAndRenderShopProducts();
+
+    // --- Admin Panel Script ---
+    const correctPassword = "admin";
+
+    const adminSection = document.getElementById('admin-section');
+    const adminLoginLink = document.getElementById('admin-login-link');
+    const authOverlay = document.getElementById('auth-overlay');
+    const adminPanelContainer = document.getElementById('admin-panel-container');
+    const loginBtn = document.getElementById('login-btn');
+    const cancelLoginBtn = document.getElementById('cancel-login-btn');
+    const closeAdminPanelBtn = document.getElementById('close-admin-panel-btn');
+    const passwordInput = document.getElementById('password');
+    
+    const productsTableBody = document.getElementById('productsTableBody');
+    const addProductForm = document.getElementById('addProductForm');
+
+    // Show login
+    adminLoginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        adminSection.classList.remove('hidden');
+        authOverlay.classList.remove('hidden');
+        adminPanelContainer.classList.add('hidden'); // Ensure panel is hidden initially
+    });
+
+    // Cancel login
+    cancelLoginBtn.addEventListener('click', () => {
+        adminSection.classList.add('hidden');
+    });
+    
+    // Close admin panel
+    closeAdminPanelBtn.addEventListener('click', () => {
+        adminPanelContainer.classList.add('hidden');
+        adminSection.classList.add('hidden');
+        // Refresh shop products
+        fetchAndRenderShopProducts();
+    });
+
+    // Handle login
+    loginBtn.addEventListener('click', () => {
+        if (passwordInput.value === correctPassword) {
+            authOverlay.classList.add('hidden');
+            adminPanelContainer.classList.remove('hidden');
+            loadAdminProducts();
+        } else {
+            alert('סיסמה שגויה');
+        }
+    });
+
+    async function loadAdminProducts() {
+        try {
+            const response = await fetch('products.json?v=' + Date.now()); // Bust cache
+            const products = await response.json();
+            renderAdminProducts(products);
+        } catch (error) {
+            console.error('Error loading products for admin:', error);
+            alert('שגיאה בטעינת המוצרים ללוח הניהול.');
+        }
+    }
+
+    function renderAdminProducts(products) {
+        productsTableBody.innerHTML = '';
+        products.forEach(product => {
+            const row = document.createElement('tr');
+            row.className = 'border-b hover:bg-gray-50';
+            row.innerHTML = `
+                <td class="p-4"><img src="${product.imageUrl}" alt="${product.name}" class="w-16 h-20 object-cover rounded-sm"></td>
+                <td class="p-4 font-semibold">${product.name}</td>
+                <td class="p-4 text-gray-600">${product.category}</td>
+                <td class="p-4 font-semibold">₪${product.price}</td>
+                <td class="p-4">
+                    <button onclick="window.deleteProduct('${product.id}')" class="text-red-600 hover:text-red-800">מחק</button>
+                </td>
+            `;
+            productsTableBody.appendChild(row);
+        });
+    }
+
+    addProductForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const newProduct = {
+            id: 'p' + Date.now(),
+            name: document.getElementById('productName').value,
+            category: document.getElementById('productCategory').value,
+            price: parseInt(document.getElementById('productPrice').value),
+            imageUrl: document.getElementById('productImageUrl').value,
+        };
+
+        alert(`הנחיה ל-Gemini: \n1. קרא את הקובץ products.json. \n2. הוסף את האובייקט החדש למערך המוצרים: \n${JSON.stringify(newProduct, null, 2)}\n3. שמור את הקובץ products.json המעודכן.`);
+        
+        addProductForm.reset();
+    });
+
+    window.deleteProduct = (productId) => {
+        if (confirm('האם אתה בטוח שברצונך למחוק מוצר זה?')) {
+            alert(`הנחיה ל-Gemini: \n1. קרא את הקובץ products.json. \n2. הסר את המוצר עם ה-ID הבא: ${productId}\n3. שמור את הקובץ products.json המעודכן.`);
+        }
+    };
 });
 </script>
 
