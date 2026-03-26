@@ -4,119 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olives Jewelry - תכשיטים בעבודת יד</title>
+    <title>OLIVES JEWELRY</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Assistant', sans-serif;
-            background-color: #FDFBF7;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
         }
-        :root {
-            --brand-green: #575A3A;
-            --brand-light: #FDFBF7;
-            --brand-dark: #2C2D1D;
-        }
-        .bg-brand-green { background-color: var(--brand-green); }
-        .text-brand-green { color: var(--brand-green); }
-        .border-brand-green { border-color: var(--brand-green); }
-        .hover\:bg-brand-dark:hover { background-color: var(--brand-dark); }
-        .hover\:text-brand-green:hover { color: var(--brand-green); }
-        .font-semibold { font-weight: 600; }
-        .font-bold { font-weight: 700; }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .font-sans { font-family: 'Montserrat', sans-serif; }
+        .text-gold { color: #D4AF37; }
+        .bg-gold { background-color: #D4AF37; }
+        .border-gold { border-color: #D4AF37; }
+        .bg-deep-black { background-color: #1A1A1A; }
+        .bg-cream { background-color: #FDFBF7; }
     </style>
 </head>
-<body class="text-brand-dark">
+<body class="bg-white">
 
     <!-- Header -->
-    <header class="sticky top-0 bg-brand-light/90 backdrop-blur-lg shadow-sm z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold tracking-wider text-brand-green">OLIVES</a>
+    <header class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
             <div class="hidden md:flex items-center space-x-8">
-                <a href="shop.html" class="hover:text-brand-green transition-colors duration-300">חנות</a>
-                <a href="#" class="hover:text-brand-green transition-colors duration-300">אודות</a>
-                <a href="#" class="hover:text-brand-green transition-colors duration-300">יצירת קשר</a>
+                <a href="shop.html" class="hover:text-gold transition-colors duration-300">חנות</a>
+                <a href="#" class="hover:text-gold transition-colors duration-300">עלינו</a>
             </div>
-            <div class="flex items-center">
-                <a href="#" class="relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                </a>
-            </div>
+            <a href="index.html" class="text-2xl font-sans font-bold tracking-widest absolute left-1/2 -translate-x-1/2">OLIVES</a>
+            <a href="#" class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+            </a>
         </nav>
     </header>
 
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="h-[80vh] flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1528629215216-e85b3b333a36?q=80&w=2070&auto=format&fit=crop');">
-            <div class="text-center bg-black/30 p-12 rounded-lg">
-                <h1 class="text-5xl md:text-6xl text-white font-light mb-4">יופי טבעי, לנצח</h1>
-                <p class="text-lg text-white/90 mb-8 max-w-2xl">כל תכשיט מיוצר באהבה ומעוצב בהשראת הטבע, במיוחד בשבילך.</p>
-                <a href="shop.html" class="mt-4 inline-block bg-brand-green text-white py-3 px-12 text-lg font-semibold rounded-full shadow-lg hover:bg-brand-dark transition-all duration-300 transform hover:scale-105">לגלישת הקולקציה</a>
+        <section class="relative h-[85vh] flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1599335960321-39c1b3ea1e67?q=80&w=2574&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="relative z-10 p-8">
+                <h1 class="font-serif text-5xl md:text-7xl text-white font-semibold tracking-wider">תכשיטים שחורטים רגעים</h1>
+                <a href="shop.html" class="mt-8 inline-block bg-deep-black text-gold py-3 px-12 text-sm font-sans tracking-widest uppercase hover:bg-gold hover:text-deep-black transition-all duration-300">לכל הקולקציה</a>
             </div>
         </section>
 
-        <!-- Categories Section -->
-        <section class="py-20 bg-brand-light">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-semibold mb-2">תכשיטים לכל רגע</h2>
-                <p class="text-lg text-gray-600 mb-12">מציאת התכשיט המושלם שילווה אותך.</p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <a href="shop.html" class="group block">
-                        <div class="overflow-hidden rounded-lg shadow-md">
+        <!-- Featured Categories -->
+        <section class="py-24 bg-cream">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <a href="shop.html" class="group">
+                        <div class="overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1617002253292-5db372d38563?q=80&w=1974&auto=format&fit=crop" alt="שרשראות" class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
-                        <h3 class="text-xl font-semibold mt-6 text-brand-green">שרשראות</h3>
+                        <h3 class="font-serif text-2xl mt-6">שרשראות</h3>
                     </a>
-                    <a href="shop.html" class="group block">
-                        <div class="overflow-hidden rounded-lg shadow-md">
+                    <a href="shop.html" class="group">
+                        <div class="overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1605175914946-b3c0c01f60ab?q=80&w=1974&auto=format&fit=crop" alt="טבעות" class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
-                        <h3 class="text-xl font-semibold mt-6 text-brand-green">טבעות</h3>
+                        <h3 class="font-serif text-2xl mt-6">טבעות</h3>
                     </a>
-                    <a href="shop.html" class="group block">
-                        <div class="overflow-hidden rounded-lg shadow-md">
-                            <img src="https://images.unsplash.com/photo-1627542111365-273a110b3a3a?q=80&w=1974&auto=format&fit=crop" alt="עגילים" class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <a href="shop.html" class="group">
+                        <div class="overflow-hidden">
+                             <img src="https://images.unsplash.com/photo-1627542111365-273a110b3a3a?q=80&w=1974&auto=format&fit=crop" alt="צמידים" class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
-                        <h3 class="text-xl font-semibold mt-6 text-brand-green">עגילים</h3>
+                        <h3 class="font-serif text-2xl mt-6">צמידים</h3>
                     </a>
                 </div>
             </div>
         </section>
-        
-        <!-- Brand Promise Section -->
-        <section class="bg-white">
-            <div class="container mx-auto px-6 py-20">
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2">
-                        <img src="https://images.unsplash.com/photo-1510252578106-b3c1b4765a98?q=80&w=2070&auto=format&fit=crop" class="rounded-lg shadow-xl">
-                    </div>
-                    <div class="md:w-1/2 text-center md:text-right">
-                        <h2 class="text-3xl font-bold text-brand-green mb-4">בהשראת עלי הזית</h2>
-                        <p class="text-lg text-gray-700 leading-relaxed">
-                            המותג שלנו, Olives, נולד מתוך אהבה לטבע וליופי שבפשטות. כמו עץ הזית, סמל לשלום, חוכמה ושורשיות, כך גם התכשיטים שלנו - נועדו להיות על-זמניים, עמידים ולהעניק תחושת חיבור ומשמעות. אנו משתמשים בחומרים איכותיים ויוצרים כל פריט בעבודת יד קפדנית.
-                        </p>
-                        <a href="#" class="text-brand-green font-semibold mt-4 inline-block">קראו עוד על הסיפור שלנו</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark text-white py-12">
+    <footer class="bg-white text-gray-700 py-12">
         <div class="container mx-auto px-6 text-center">
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="#" class="hover:text-gray-300">Facebook</a>
-                <a href="#" class="hover:text-gray-300">Instagram</a>
-                <a href="#" class="hover:text-gray-300">Pinterest</a>
-            </div>
-            <p>&copy; 2024 כל הזכויות שמורות ל-OLIVES JEWELRY</p>
+            <p class="font-sans text-sm">&copy; 2024 OLIVES JEWELRY</p>
         </div>
     </footer>
 

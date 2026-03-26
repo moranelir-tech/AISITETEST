@@ -1,103 +1,129 @@
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>פרטי מוצר - Olives Jewelry</title>
+    <title>שרשרת בר חריטה קלאסית - OLIVES JEWELRY</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Assistant', sans-serif;
-            background-color: #FDFBF7;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
         }
-        :root {
-            --brand-green: #575A3A;
-            --brand-light: #FDFBF7;
-            --brand-dark: #2C2D1D;
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .font-sans { font-family: 'Montserrat', sans-serif; }
+        .text-gold { color: #D4AF37; }
+        .bg-gold { background-color: #D4AF37; }
+        .border-gold { border-color: #D4AF37; }
+        .bg-deep-black { background-color: #1A1A1A; }
+        .bg-cream { background-color: #FDFBF7; }
+
+        .tab.active {
+            border-bottom-width: 2px;
+            border-color: #1A1A1A;
+            font-weight: 600;
         }
-        .bg-brand-green { background-color: var(--brand-green); }
-        .text-brand-green { color: var(--brand-green); }
-        .border-brand-green { border-color: var(--brand-green); }
-        .hover\:bg-brand-dark:hover { background-color: var(--brand-dark); }
-        .hover\:text-brand-green:hover { color: var(--brand-green); }
-        .focus\:ring-brand-green:focus { ring-color: var(--brand-green); }
+
+        /* Custom Toggle Switch */
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #1A1A1A;
+        }
+
+        /* Smooth Transitions */
+        .transition-max-height {
+            transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+        }
     </style>
 </head>
-<body class="text-brand-dark">
+<body class="bg-white">
 
     <!-- Header -->
-    <header class="sticky top-0 bg-brand-light/90 backdrop-blur-lg shadow-sm z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold tracking-wider text-brand-green">OLIVES</a>
+    <header class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
             <div class="hidden md:flex items-center space-x-8">
-                <a href="shop.html" class="hover:text-brand-green transition-colors duration-300">חנות</a>
-                <a href="#" class="hover:text-brand-green transition-colors duration-300">אודות</a>
-                <a href="#" class="hover:text-brand-green transition-colors duration-300">יצירת קשר</a>
+                <a href="shop.html" class="hover:text-gold transition-colors duration-300">חנות</a>
+                <a href="#" class="hover:text-gold transition-colors duration-300">עלינו</a>
             </div>
-            <div class="flex items-center">
-                <a href="#" class="relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                </a>
-            </div>
+            <a href="index.html" class="text-2xl font-sans font-bold tracking-widest absolute left-1/2 -translate-x-1/2">OLIVES</a>
+            <a href="#" class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+            </a>
         </nav>
     </header>
 
     <!-- Product Details -->
-    <main class="py-20">
+    <main class="py-12 md:py-24">
         <div class="container mx-auto px-6">
-            <div class="md:flex md:space-x-12 rtl:space-x-reverse">
+            <div class="md:flex md:gap-12 lg:gap-24">
                 <!-- Left: Image -->
                 <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1611652032952-a8c6778431d4?q=80&w=2070&auto=format&fit=crop" alt="שרשרת חריטה עדינה" class="w-full h-auto object-cover rounded-lg shadow-lg">
+                    <div class="bg-cream rounded-sm">
+                        <img src="https://picsum.photos/seed/p1/800/1000" alt="שרשרת בר חריטה קלאסית" class="w-full h-auto object-cover">
+                    </div>
                 </div>
 
                 <!-- Right: Info -->
                 <div class="md:w-1/2 mt-8 md:mt-0">
-                    <h1 class="text-4xl font-bold">שרשרת חריטה עדינה</h1>
-                    <p class="text-2xl text-brand-green my-4">₪299</p>
-                    <div class="border-t pt-4">
-                        <h2 class="text-lg font-semibold mb-2">תיאור</h2>
-                        <p class="text-gray-600 leading-relaxed">
-                            שרשרת עדינה ומודרנית, עשויה זהב אמיתי 14K או כסף טהור 925. מושלמת כמתנה אישית עם חריטה של שם, תאריך או מסר קצר. התכשיט מגיע באריזת מתנה יוקרתית.
+                    <h1 class="font-serif text-4xl md:text-5xl">שרשרת בר חריטה קלאסית</h1>
+                    <p id="totalPrice" class="font-sans text-3xl font-bold my-5">₪299</p>
+                    
+                    <div class="border-t border-gray-200 pt-6">
+                        <p class="text-gray-600 leading-relaxed font-sans">
+                            שרשרת בר עדינה ומינימליסטית, הבחירה המושלמת למראה נקי ומודרני. ניתנת לחריטה אישית להוספת מגע ייחודי. עשויה מחומרים איכותיים ומגיעה באריזה יוקרתית.
                         </p>
                     </div>
 
                     <!-- Configuration -->
-                    <div class="mt-8 space-y-6">
-                        
+                    <div class="mt-8 space-y-8">
+                        <!-- Color Tabs -->
                         <div>
-                            <h3 class="text-lg font-semibold mb-3">גימור</h3>
-                            <div class="flex space-x-4">
-                                <label class="flex items-center cursor-pointer">
-                                    <input type="radio" name="color" value="gold" class="h-5 w-5 border-gray-300 focus:ring-brand-green text-brand-green" checked>
-                                    <span class="mr-2">זהב</span>
-                                </label>
-                                <label class="flex items-center cursor-pointer">
-                                    <input type="radio" name="color" value="silver" class="h-5 w-5 border-gray-300 focus:ring-brand-green text-brand-green">
-                                    <span class="mr-2">כסף</span>
-                                </label>
+                            <h3 class="font-sans text-sm font-semibold mb-3">גימור</h3>
+                            <div id="color-tabs" class="flex space-x-6 border-b border-gray-200">
+                                <button data-value="gold" class="tab active pb-2">זהב</button>
+                                <button data-value="silver" class="tab pb-2 text-gray-500">כסף</button>
                             </div>
                         </div>
                         
+                        <!-- Size Tabs -->
                         <div>
-                            <h3 class="text-lg font-semibold mb-3">אורך השרשרת</h3>
-                            <select class="w-full p-3 border rounded-md bg-white shadow-sm focus:ring-2 focus:ring-brand-green focus:border-transparent">
-                                <option>40 ס"מ</option>
-                                <option>45 ס"מ</option>
-                                <option>50 ס"מ</option>
-                            </select>
+                            <h3 class="font-sans text-sm font-semibold mb-3">אורך השרשרת</h3>
+                             <div id="size-tabs" class="flex space-x-6 border-b border-gray-200">
+                                <button data-value="40" class="tab active pb-2">40 ס"מ</button>
+                                <button data-value="45" class="tab pb-2 text-gray-500">45 ס"מ</button>
+                                <button data-value="50" class="tab pb-2 text-gray-500">50 ס"מ</button>
+                            </div>
                         </div>
 
+                        <!-- Engraving Toggle & Input -->
+                        <div class="border-t border-b border-gray-200 py-4">
+                            <label for="engravingToggle" class="flex justify-between items-center cursor-pointer">
+                                <h3 class="font-sans text-md font-semibold">תוספת חריטה</h3>
+                                <div class="relative">
+                                    <input type="checkbox" id="engravingToggle" class="toggle-checkbox sr-only">
+                                    <div class="toggle-label block bg-gray-200 w-12 h-7 rounded-full transition-colors duration-200 ease-in-out"></div>
+                                    <div class="toggle-dot absolute left-1 top-1 bg-white w-5 h-5 rounded-full shadow transition-transform duration-200 ease-in-out"></div>
+                                </div>
+                            </label>
+                            <div id="engravingWrapper" class="overflow-hidden max-h-0 opacity-0 transition-max-height">
+                                <input type="text" placeholder="הקלד את החריטה (עד 10 תווים)" class="mt-4 w-full p-3 font-sans border-b-2 border-gray-300 focus:border-deep-black bg-transparent focus:outline-none transition-colors">
+                                <p id="engravingUplift" class="text-sm text-gray-500 mt-2" style="display: none;">+ ₪25 לחריטה</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Add to Cart -->
-                    <div class="mt-8">
-                        <button class="w-full bg-brand-green text-white py-4 text-lg font-semibold rounded-lg hover:bg-brand-dark transition-colors duration-300 shadow-lg">הוספה לסל</button>
+                    <div class="mt-10">
+                        <button class="w-full bg-deep-black text-white py-4 text-lg font-sans rounded-md hover:opacity-90 active:scale-[0.98] transition-all duration-200">הוספה לסל</button>
                     </div>
                 </div>
             </div>
@@ -105,16 +131,62 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark text-white py-12 mt-20">
+    <footer class="bg-white text-gray-700 py-12 mt-12">
         <div class="container mx-auto px-6 text-center">
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="#" class="hover:text-gray-300">Facebook</a>
-                <a href="#" class="hover:text-gray-300">Instagram</a>
-                <a href="#" class="hover:text-gray-300">Pinterest</a>
-            </div>
-            <p>&copy; 2024 כל הזכויות שמורות ל-OLIVES JEWELRY</p>
+            <p class="font-sans text-sm">&copy; 2024 OLIVES JEWELRY</p>
         </div>
     </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const basePrice = 299;
+        const engravingCost = 25;
+
+        const totalPriceEl = document.getElementById('totalPrice');
+        const engravingToggle = document.getElementById('engravingToggle');
+        const engravingWrapper = document.getElementById('engravingWrapper');
+        const engravingUpliftEl = document.getElementById('engravingUplift');
+        
+        // --- Tab Selection Logic --- //
+        function setupTabs(containerId) {
+            const tabContainer = document.getElementById(containerId);
+            if (!tabContainer) return;
+            
+            const tabs = tabContainer.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Deactivate all tabs in this group
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.classList.add('text-gray-500');
+                    });
+                    // Activate the clicked tab
+                    tab.classList.add('active');
+                    tab.classList.remove('text-gray-500');
+                });
+            });
+        }
+
+        setupTabs('color-tabs');
+        setupTabs('size-tabs');
+
+        // --- Engraving Toggle & Price Calculation --- //
+        engravingToggle.addEventListener('change', () => {
+            let currentTotal = basePrice;
+            if (engravingToggle.checked) {
+                engravingWrapper.classList.remove('max-h-0', 'opacity-0');
+                engravingWrapper.classList.add('max-h-40', 'opacity-100', 'mt-4');
+                engravingUpliftEl.style.display = 'block';
+                currentTotal += engravingCost;
+            } else {
+                engravingWrapper.classList.remove('max-h-40', 'opacity-100', 'mt-4');
+                engravingWrapper.classList.add('max-h-0', 'opacity-0');
+                engravingUpliftEl.style.display = 'none';
+            }
+            totalPriceEl.textContent = `₪${currentTotal}`;
+        });
+    });
+</script>
 
 </body>
 </html>
