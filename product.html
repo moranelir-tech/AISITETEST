@@ -1,108 +1,148 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product - Olives Jewelry</title>
+    <title>פרטי מוצר - Olives Jewelry</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body class="bg-cream">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --gold: #D4AF37;
-            --cream: #F5F5DC;
-            --black: #000000;
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #FDFBF7;
         }
-        .bg-gold { background-color: var(--gold); }
-        .bg-cream { background-color: var(--cream); }
-        .text-gold { color: var(--gold); }
+        .text-gold { color: #D4AF37; }
+        .bg-deep-black { background-color: #1A1A1A; }
+        .border-gold { border-color: #D4AF37; }
+        .ring-gold:focus { ring-color: #D4AF37; }
     </style>
+</head>
+<body class="text-gray-800">
 
     <!-- Header -->
-    <header class="bg-white shadow-md">
+    <header class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-gray-800">Olives Jewelry</a>
-            <div>
-                <a href="shop.html" class="mx-2 text-gray-600 hover:text-gold">Shop</a>
-                <a href="#" class="mx-2 text-gray-600 hover:text-gold">About</a>
-                <a href="#" class="mx-2 text-gray-600 hover:text-gold">Contact</a>
+            <a href="index.html" class="text-2xl font-bold tracking-wider">OLIVES JEWELRY</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="shop.html" class="hover:text-gold transition">חנות</a>
+                <a href="#" class="hover:text-gold transition">עלינו</a>
+                <a href="#" class="hover:text-gold transition">צור קשר</a>
             </div>
+            <a href="#" class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+            </a>
         </nav>
     </header>
 
     <!-- Product Details -->
-    <section class="py-20">
+    <main class="py-20">
         <div class="container mx-auto px-6">
-            <div class="md:flex md:items-center">
+            <div class="md:flex md:space-x-12">
+                <!-- Left: Image -->
                 <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1599335960357-c1d204a4e8b8?q=80&w=2070&auto=format&fit=crop" alt="Product Image" class="w-full h-auto rounded-md shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1611652032952-a8c6778431d4?q=80&w=2070&auto=format&fit=crop" alt="שרשרת חריטה עדינה" class="w-full h-auto object-cover rounded-lg shadow-lg">
                 </div>
-                <div class="md:w-1/2 md:pl-10">
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Golden Necklace</h2>
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl text-gray-600" id="price">450 ILS</span>
-                        <span id="base-price" class="hidden">450</span>
+
+                <!-- Right: Info -->
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <h1 class="text-4xl font-bold">שרשרת חריטה עדינה</h1>
+                    <p class="text-2xl text-gold my-4">₪299</p>
+                    <div class="border-t pt-4">
+                        <h2 class="text-lg font-semibold mb-2">תיאור</h2>
+                        <p class="text-gray-600 leading-relaxed">
+                            שרשרת עדינה ומודרנית, עשויה זהב אמיתי 14K או כסף טהור 925. מושלמת כמתנה אישית עם חריטה של שם, תאריך או מסר קצר. התכשיט מגיע באריזת מתנה יוקרתית.
+                        </p>
                     </div>
-                    <p class="text-gray-600 mb-6">A beautiful golden necklace that will make you shine. Perfect for any occasion.</p>
-                    
-                    <!-- Color Selection -->
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Color</h3>
-                        <div class="flex space-x-4">
-                            <label class="flex items-center">
-                                <input type="radio" name="color" value="gold" class="form-radio text-gold focus:ring-gold">
-                                <span class="ml-2">Gold</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="radio" name="color" value="silver" class="form-radio text-gray-400 focus:ring-gray-400">
-                                <span class="ml-2">Silver</span>
-                            </label>
-                            <label class="flex items-center">
-                                <input type="radio" name="color" value="rose-gold" class="form-radio text-rose-400 focus:ring-rose-400">
-                                <span class="ml-2">Rose Gold</span>
-                            </label>
+
+                    <!-- Configuration -->
+                    <div class="mt-8 space-y-6">
+                        <!-- Color -->
+                        <div>
+                            <h3 class="text-lg font-semibold mb-3">צבע</h3>
+                            <div class="flex space-x-4">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="color" value="gold" class="h-5 w-5 border-gray-300 ring-gold" checked>
+                                    <span class="mr-2">זהב</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="radio" name="color" value="silver" class="h-5 w-5 border-gray-300 ring-gold">
+                                    <span class="mr-2">כסף</span>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Size -->
+                        <div>
+                            <h3 class="text-lg font-semibold mb-3">אורך השרשרת</h3>
+                            <select class="w-full p-3 border rounded-md bg-white shadow-sm">
+                                <option>40 ס"מ</option>
+                                <option>45 ס"מ</option>
+                                <option>50 ס"מ</option>
+                            </select>
+                        </div>
+                        <!-- Engraving -->
+                        <div>
+                           <div class="border-t border-b py-4">
+                                <label for="engravingToggle" class="flex justify-between items-center cursor-pointer">
+                                    <h3 class="text-lg font-semibold">תוספת חריטה אישית</h3>
+                                    <div class="relative">
+                                        <input type="checkbox" id="engravingToggle" class="sr-only">
+                                        <div class="block bg-gray-200 w-14 h-8 rounded-full"></div>
+                                        <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                                    </div>
+                                </label>
+                                <div id="engravingInputWrapper" class="hidden mt-4">
+                                    <input type="text" placeholder="הקלד את החריטה כאן" class="w-full p-3 border rounded-md shadow-sm focus:ring-2 focus:ring-gold focus:border-transparent">
+                                    <p class="text-sm text-gray-500 mt-2">עד 10 תווים. עלות נוספת עשויה לחול.</p>
+                                </div>
+                           </div>
                         </div>
                     </div>
 
-                    <!-- Size Selection -->
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Size</h3>
-                        <select class="w-full p-2 border rounded-md">
-                            <option>40 cm</option>
-                            <option>45 cm</option>
-                            <option>50 cm</option>
-                        </select>
+                    <!-- Add to Cart -->
+                    <div class="mt-8">
+                        <button class="w-full bg-deep-black text-white py-4 text-lg rounded-md hover:bg-gold transition-colors duration-300">הוספה לסל</button>
                     </div>
-
-                    <!-- Engraving -->
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Engraving (+25 ILS)</h3>
-                        <input type="text" id="engraving" placeholder="Your custom text" class="w-full p-2 border rounded-md">
-                    </div>
-
-                    <button class="w-full bg-gold text-white font-semibold py-3 px-8 rounded-md hover:bg-yellow-600">Add to Cart</button>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/972500000000" target="_blank" class="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600">
-        <i class="fab fa-whatsapp fa-2x"></i>
-    </a>
+    <!-- Footer -->
+    <footer class="bg-deep-black text-white py-10 mt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-gold">Facebook</a>
+                <a href="#" class="hover:text-gold">Instagram</a>
+                <a href="#" class="hover:text-gold">Pinterest</a>
+            </div>
+            <p>&copy; 2026 כל הזכויות שמורות ל-OLIVES JEWELRY</p>
+        </div>
+    </footer>
 
     <script>
-        const engravingInput = document.getElementById('engraving');
-        const priceElement = document.getElementById('price');
-        const basePrice = parseInt(document.getElementById('base-price').textContent);
-
-        engravingInput.addEventListener('input', () => {
-            if (engravingInput.value.trim() !== '') {
-                priceElement.textContent = `${basePrice + 25} ILS`;
+        const engravingToggle = document.getElementById('engravingToggle');
+        const engravingInputWrapper = document.getElementById('engravingInputWrapper');
+        
+        engravingToggle.addEventListener('change', () => {
+            if (engravingToggle.checked) {
+                engravingInputWrapper.classList.remove('hidden');
             } else {
-                priceElement.textContent = `${basePrice} ILS`;
+                engravingInputWrapper.classList.add('hidden');
+            }
+        });
+
+        // Style for the toggle switch
+        const toggleCheckbox = document.querySelector('#engravingToggle');
+        toggleCheckbox.addEventListener('change', function() {
+            const dot = this.nextElementSibling.nextElementSibling;
+            if(this.checked) {
+                dot.style.transform = 'translateX(100%)';
+                this.nextElementSibling.style.backgroundColor = '#D4AF37';
+            } else {
+                dot.style.transform = 'translateX(0)';
+                 this.nextElementSibling.style.backgroundColor = '#E5E7EB'; // gray-200
             }
         });
     </script>

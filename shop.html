@@ -1,98 +1,135 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Olives Jewelry</title>
+    <title>חנות - Olives Jewelry</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body class="bg-cream">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --gold: #D4AF37;
-            --cream: #F5F5DC;
-            --black: #000000;
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #FDFBF7;
         }
-        .bg-gold { background-color: var(--gold); }
-        .bg-cream { background-color: var(--cream); }
-        .text-gold { color: var(--gold); }
+        .text-gold { color: #D4AF37; }
+        .bg-deep-black { background-color: #1A1A1A; }
+        .border-gold { border-color: #D4AF37; }
     </style>
+</head>
+<body class="text-gray-800">
 
     <!-- Header -->
-    <header class="bg-white shadow-md">
+    <header class="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-gray-800">Olives Jewelry</a>
-            <div>
-                <a href="shop.html" class="mx-2 text-gray-600 hover:text-gold">Shop</a>
-                <a href="#" class="mx-2 text-gray-600 hover:text-gold">About</a>
-                <a href="#" class="mx-2 text-gray-600 hover:text-gold">Contact</a>
+            <a href="index.html" class="text-2xl font-bold tracking-wider">OLIVES JEWELRY</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="shop.html" class="hover:text-gold transition">חנות</a>
+                <a href="#" class="hover:text-gold transition">עלינו</a>
+                <a href="#" class="hover:text-gold transition">צור קשר</a>
             </div>
+            <a href="#" class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+            </a>
         </nav>
     </header>
 
     <!-- Product Grid -->
-    <section class="py-20">
+    <main class="py-20">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Our Products</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Product 1 -->
-                <div class="text-center">
-                    <a href="product.html">
-                        <img src="https://images.unsplash.com/photo-1599335960357-c1d204a4e8b8?q=80&w=2070&auto=format&fit=crop" alt="Jewelry Item" class="w-full h-64 object-cover rounded-md shadow-lg">
-                        <h3 class="text-xl font-semibold text-gray-800 mt-4">Golden Necklace</h3>
-                        <p class="text-gray-600">450 ILS</p>
+            <h1 class="text-4xl text-center font-light mb-12">הקולקציה שלנו</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Product Card -->
+                <div class="text-center group">
+                    <a href="product.html" class="block">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1611652032952-a8c6778431d4?q=80&w=2070&auto=format&fit=crop" alt="שרשרת זהב" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-lg font-semibold">שרשרת חריטה עדינה</h3>
+                        <p class="text-sm text-gray-500">שרשראות</p>
+                        <p class="text-md font-bold mt-2">₪299</p>
+                        <span class="mt-4 inline-block bg-deep-black text-white py-2 px-6 hover:bg-gold transition-colors duration-300">לפרטים ורכישה</span>
                     </a>
                 </div>
-                <!-- Product 2 -->
-                <div class="text-center">
-                    <a href="product.html">
-                        <img src="https://images.unsplash.com/photo-1606813303318-c672b14421b3?q=80&w=2070&auto=format&fit=crop" alt="Jewelry Item" class="w-full h-64 object-cover rounded-md shadow-lg">
-                        <h3 class="text-xl font-semibold text-gray-800 mt-4">Silver Ring</h3>
-                        <p class="text-gray-600">300 ILS</p>
+
+                <!-- Repeat for other products -->
+                <div class="text-center group">
+                    <a href="product.html" class="block">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1598564996227-242d5448b3df?q=80&w=2070&auto=format&fit=crop" alt="טבעת" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-lg font-semibold">טבעת חותם עגולה</h3>
+                        <p class="text-sm text-gray-500">טבעות</p>
+                        <p class="text-md font-bold mt-2">₪349</p>
+                        <span class="mt-4 inline-block bg-deep-black text-white py-2 px-6 hover:bg-gold transition-colors duration-300">לפרטים ורכישה</span>
                     </a>
                 </div>
-                <!-- Product 3 -->
-                <div class="text-center">
-                    <a href="product.html">
-                        <img src="https://images.unsplash.com/photo-1610919253424-6f01a03f4f13?q=80&w=2070&auto=format&fit=crop" alt="Jewelry Item" class="w-full h-64 object-cover rounded-md shadow-lg">
-                        <h3 class="text-xl font-semibold text-gray-800 mt-4">Rose Gold Bracelet</h3>
-                        <p class="text-gray-600">500 ILS</p>
+
+                <div class="text-center group">
+                    <a href="product.html" class="block">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1611591437281-462bf4d26afa?q=80&w=2070&auto=format&fit=crop" alt="צמיד" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-lg font-semibold">צמיד חוליות קלאסי</h3>
+                        <p class="text-sm text-gray-500">צמידים</p>
+                        <p class="text-md font-bold mt-2">₪420</p>
+                        <span class="mt-4 inline-block bg-deep-black text-white py-2 px-6 hover:bg-gold transition-colors duration-300">לפרטים ורכישה</span>
                     </a>
                 </div>
-                <!-- Product 4 -->
-                <div class="text-center">
-                    <a href="product.html">
-                        <img src="https://images.unsplash.com/photo-1611094612344-aa45a6c1e5a3?q=80&w=2070&auto=format&fit=crop" alt="Jewelry Item" class="w-full h-64 object-cover rounded-md shadow-lg">
-                        <h3 class="text-xl font-semibold text-gray-800 mt-4">Diamond Earrings</h3>
-                        <p class="text-gray-600">800 ILS</p>
+
+                 <div class="text-center group">
+                    <a href="product.html" class="block">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1606813303318-c672b14421b3?q=80&w=2070&auto=format&fit=crop" alt="Jewelry Item" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-lg font-semibold">שרשרת לולאות</h3>
+                        <p class="text-sm text-gray-500">שרשראות</p>
+                        <p class="text-md font-bold mt-2">₪310</p>
+                        <span class="mt-4 inline-block bg-deep-black text-white py-2 px-6 hover:bg-gold transition-colors duration-300">לפרטים ורכישה</span>
                     </a>
                 </div>
-                <!-- Product 5 -->
-                <div class="text-center">
-                    <a href="product.html">
-                        <img src="https://images.unsplash.com/photo-1605333190873-c8d4a97e16e4?q=80&w=2070&auto=format&fit=crop" alt="Jewelry Item" class="w-full h-64 object-cover rounded-md shadow-lg">
-                        <h3 class="text-xl font-semibold text-gray-800 mt-4">Pearl Necklace</h3>
-                        <p class="text-gray-600">600 ILS</p>
+
+                 <div class="text-center group">
+                    <a href="product.html" class="block">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1610919253424-6f01a03f4f13?q=80&w=2070&auto=format&fit=crop" alt="Jewelry Item" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-lg font-semibold">טבעת כסף מעוצבת</h3>
+                        <p class="text-sm text-gray-500">טבעות</p>
+                        <p class="text-md font-bold mt-2">₪280</p>
+                        <span class="mt-4 inline-block bg-deep-black text-white py-2 px-6 hover:bg-gold transition-colors duration-300">לפרטים ורכישה</span>
                     </a>
                 </div>
-                <!-- Product 6 -->
-                <div class="text-center">
-                    <a href="product.html">
-                        <img src="https://images.unsplash.com/photo-1603182181514-99b36077363f?q=80&w=2070&auto=format&fit=crop" alt="Jewelry Item" class="w-full h-64 object-cover rounded-md shadow-lg">
-                        <h3 class="text-xl font-semibold text-gray-800 mt-4">Gold Bangle</h3>
-                        <p class="text-gray-600">750 ILS</p>
+
+                 <div class="text-center group">
+                    <a href="product.html" class="block">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1611094612344-aa45a6c1e5a3?q=80&w=2070&auto=format&fit=crop" alt="Jewelry Item" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-lg font-semibold">צמיד טניס יוקרתי</h3>
+                        <p class="text-sm text-gray-500">צמידים</p>
+                        <p class="text-md font-bold mt-2">₪550</p>
+                        <span class="mt-4 inline-block bg-deep-black text-white py-2 px-6 hover:bg-gold transition-colors duration-300">לפרטים ורכישה</span>
                     </a>
                 </div>
+
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/972500000000" target="_blank" class="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600">
-        <i class="fab fa-whatsapp fa-2x"></i>
-    </a>
+    <!-- Footer -->
+    <footer class="bg-deep-black text-white py-10 mt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-gold">Facebook</a>
+                <a href="#" class="hover:text-gold">Instagram</a>
+                <a href="#" class="hover:text-gold">Pinterest</a>
+            </div>
+            <p>&copy; 2026 כל הזכויות שמורות ל-OLIVES JEWELRY</p>
+        </div>
+    </footer>
 
 </body>
 </html>
