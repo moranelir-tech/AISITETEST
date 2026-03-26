@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - Olives Jewelry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-cream">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --cream: #F5F5DC;
+            --black: #000000;
+        }
+        .bg-gold { background-color: var(--gold); }
+        .bg-cream { background-color: var(--cream); }
+        .text-gold { color: var(--gold); }
+    </style>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-gray-800">Olives Jewelry</a>
+            <div>
+                <a href="shop.html" class="mx-2 text-gray-600 hover:text-gold">Shop</a>
+                <a href="#" class="mx-2 text-gray-600 hover:text-gold">About</a>
+                <a href="#" class="mx-2 text-gray-600 hover:text-gold">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Product Details -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="md:flex md:items-center">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1599335960357-c1d204a4e8b8?q=80&w=2070&auto=format&fit=crop" alt="Product Image" class="w-full h-auto rounded-md shadow-lg">
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Golden Necklace</h2>
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl text-gray-600" id="price">450 ILS</span>
+                        <span id="base-price" class="hidden">450</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">A beautiful golden necklace that will make you shine. Perfect for any occasion.</p>
+                    
+                    <!-- Color Selection -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Color</h3>
+                        <div class="flex space-x-4">
+                            <label class="flex items-center">
+                                <input type="radio" name="color" value="gold" class="form-radio text-gold focus:ring-gold">
+                                <span class="ml-2">Gold</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="color" value="silver" class="form-radio text-gray-400 focus:ring-gray-400">
+                                <span class="ml-2">Silver</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="color" value="rose-gold" class="form-radio text-rose-400 focus:ring-rose-400">
+                                <span class="ml-2">Rose Gold</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Size Selection -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Size</h3>
+                        <select class="w-full p-2 border rounded-md">
+                            <option>40 cm</option>
+                            <option>45 cm</option>
+                            <option>50 cm</option>
+                        </select>
+                    </div>
+
+                    <!-- Engraving -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Engraving (+25 ILS)</h3>
+                        <input type="text" id="engraving" placeholder="Your custom text" class="w-full p-2 border rounded-md">
+                    </div>
+
+                    <button class="w-full bg-gold text-white font-semibold py-3 px-8 rounded-md hover:bg-yellow-600">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/972500000000" target="_blank" class="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+
+    <script>
+        const engravingInput = document.getElementById('engraving');
+        const priceElement = document.getElementById('price');
+        const basePrice = parseInt(document.getElementById('base-price').textContent);
+
+        engravingInput.addEventListener('input', () => {
+            if (engravingInput.value.trim() !== '') {
+                priceElement.textContent = `${basePrice + 25} ILS`;
+            } else {
+                priceElement.textContent = `${basePrice} ILS`;
+            }
+        });
+    </script>
+
+</body>
+</html>
