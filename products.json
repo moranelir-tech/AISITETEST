@@ -1,0 +1,45 @@
+
+[
+  {
+    "id": "p1",
+    "name": "שרשרת בר קלאסית",
+    "category": "שרשראות",
+    "price": 299,
+    "imageUrl": "https://picsum.photos/seed/p1/600/800"
+  },
+  {
+    "id": "p2",
+    "name": "טבעת חותם עדינה",
+    "category": "טבעות",
+    "price": 349,
+    "imageUrl": "https://picsum.photos/seed/p2/600/800"
+  },
+  {
+    "id": "p3",
+    "name": "צמיד חוליות",
+    "category": "צמידים",
+    "price": 420,
+    "imageUrl": "https://picsum.photos/seed/p3/600/800"
+  },
+  {
+    "id": "p4",
+    "name": "עגילי חישוק זהב",
+    "category": "עגילים",
+    "price": 250,
+    "imageUrl": "https://picsum.photos/seed/p4/600/800"
+  },
+  {
+    "id": "p5",
+    "name": "שרשרת שכבות",
+    "category": "שרשראות",
+    "price": 310,
+    "imageUrl": "https://picsum.photos/seed/p5/600/800"
+  },
+  {
+    "id": "p6",
+    "name": "טבעת סוליטר",
+    "category": "טבעות",
+    "price": 480,
+    "imageUrl": "https://picsum.photos/seed/p6/600/800"
+  }
+]

@@ -46,94 +46,8 @@
     <main class="py-24 bg-cream">
         <div class="container mx-auto px-6">
             <h1 class="font-serif text-4xl text-center mb-16">כל התכשיטים</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-                <!-- Product Card -->
-                <div class="group relative text-center">
-                    <a href="product.html" class="block">
-                        <div class="overflow-hidden mb-4">
-                            <img src="https://picsum.photos/seed/p1/600/800" alt="Product Name" class="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105">
-                        </div>
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span class="text-white border border-white py-2 px-6">צפה במוצר</span>
-                        </div>
-                    </a>
-                    <h3 class="font-serif text-xl">שרשרת בר קלאסית</h3>
-                    <p class="text-sm text-gray-500">שרשראות</p>
-                    <p class="font-sans font-semibold mt-2">₪299</p>
-                </div>
-                
-                <!-- Repeat for other products -->
-                <div class="group relative text-center">
-                     <a href="product.html" class="block">
-                        <div class="overflow-hidden mb-4">
-                            <img src="https://picsum.photos/seed/p2/600/800" alt="Product Name" class="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105">
-                        </div>
-                         <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span class="text-white border border-white py-2 px-6">צפה במוצר</span>
-                        </div>
-                    </a>
-                    <h3 class="font-serif text-xl">טבעת חותם עדינה</h3>
-                    <p class="text-sm text-gray-500">טבעות</p>
-                    <p class="font-sans font-semibold mt-2">₪349</p>
-                </div>
-
-                <div class="group relative text-center">
-                     <a href="product.html" class="block">
-                        <div class="overflow-hidden mb-4">
-                            <img src="https://picsum.photos/seed/p3/600/800" alt="Product Name" class="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105">
-                        </div>
-                         <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span class="text-white border border-white py-2 px-6">צפה במוצר</span>
-                        </div>
-                    </a>
-                    <h3 class="font-serif text-xl">צמיד חוליות</h3>
-                    <p class="text-sm text-gray-500">צמידים</p>
-                    <p class="font-sans font-semibold mt-2">₪420</p>
-                </div>
-                
-                 <div class="group relative text-center">
-                     <a href="product.html" class="block">
-                        <div class="overflow-hidden mb-4">
-                            <img src="https://picsum.photos/seed/p4/600/800" alt="Product Name" class="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105">
-                        </div>
-                         <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span class="text-white border border-white py-2 px-6">צפה במוצר</span>
-                        </div>
-                    </a>
-                    <h3 class="font-serif text-xl">עגילי חישוק זהב</h3>
-                    <p class="text-sm text-gray-500">עגילים</p>
-                    <p class="font-sans font-semibold mt-2">₪250</p>
-                </div>
-
-                 <div class="group relative text-center">
-                     <a href="product.html" class="block">
-                        <div class="overflow-hidden mb-4">
-                            <img src="https://picsum.photos/seed/p5/600/800" alt="Product Name" class="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105">
-                        </div>
-                         <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span class="text-white border border-white py-2 px-6">צפה במוצר</span>
-                        </div>
-                    </a>
-                    <h3 class="font-serif text-xl">שרשרת שכבות</h3>
-                    <p class="text-sm text-gray-500">שרשראות</p>
-                    <p class="font-sans font-semibold mt-2">₪310</p>
-                </div>
-
-                 <div class="group relative text-center">
-                     <a href="product.html" class="block">
-                        <div class="overflow-hidden mb-4">
-                            <img src="https://picsum.photos/seed/p6/600/800" alt="Product Name" class="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105">
-                        </div>
-                         <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <span class="text-white border border-white py-2 px-6">צפה במוצר</span>
-                        </div>
-                    </a>
-                    <h3 class="font-serif text-xl">טבעת סוליטר</h3>
-                    <p class="text-sm text-gray-500">טבעות</p>
-                    <p class="font-sans font-semibold mt-2">₪480</p>
-                </div>
-
+            <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Products will be loaded here -->
             </div>
         </div>
     </main>
@@ -144,6 +58,45 @@
             <p class="font-sans text-sm">&copy; 2024 OLIVES JEWELRY</p>
         </div>
     </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    const productGrid = document.getElementById('product-grid');
+
+    try {
+        const response = await fetch('products.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const products = await response.json();
+        
+        productGrid.innerHTML = ''; // Clear existing content
+
+        products.forEach(product => {
+            const productCard = `
+                <div class="group relative text-center">
+                    <a href="product.html?id=${product.id}" class="block">
+                        <div class="overflow-hidden mb-4 bg-white">
+                            <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-[450px] object-cover transition-transform duration-300 group-hover:scale-105">
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-white border border-white py-2 px-6">צפה במוצר</span>
+                        </div>
+                    </a>
+                    <h3 class="font-serif text-xl">${product.name}</h3>
+                    <p class="text-sm text-gray-500">${product.category}</p>
+                    <p class="font-sans font-semibold mt-2">₪${product.price}</p>
+                </div>
+            `;
+            productGrid.innerHTML += productCard;
+        });
+
+    } catch (error) {
+        console.error('Fetch error:', error);
+        productGrid.innerHTML = '<p class="text-center col-span-full">שגיאה בטעינת המוצרים. נסה שוב מאוחר יותר.</p>';
+    }
+});
+</script>
 
 </body>
 </html>
